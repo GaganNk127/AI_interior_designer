@@ -131,7 +131,7 @@ const Home = () => {
       const imagePrompt = `A high-quality, realistic interior design rendering of a room based on these suggestions: ${designSuggestions}`;
 
       const payload = { instances: { prompt: imagePrompt }, parameters: { "sampleCount": 1 } };
-      const apiKey = "";
+      const apiKey = `${import.meta.env.api}`;
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
 
       const response = await fetch(apiUrl, {
@@ -162,7 +162,7 @@ const Home = () => {
           Welcome to AI Room Designer
         </h1>
 
-        {/* Image Upload */}
+       
         <div className="mb-8 border-2 border-dashed border-teal-400 bg-[#2a2a2a] rounded-lg p-6 text-center hover:border-emerald-400 transition duration-300">
           <label htmlFor="image-upload" className="cursor-pointer block">
             <input
@@ -200,14 +200,14 @@ const Home = () => {
           {isLoadingText ? 'Generating Suggestions...' : 'Generate Design Suggestions'}
         </button>
 
-        {/* Error Message */}
+       
         {error && (
           <div className="mt-6 bg-red-500 bg-opacity-10 border border-red-600 text-red-400 rounded-lg p-4 text-center">
             <p className="font-medium">{error}</p>
           </div>
         )}
 
-        {/* Text Suggestions */}
+       
         {designSuggestions && (
           <div className="mt-8 bg-[#292929] border border-emerald-700 rounded-xl p-6 shadow-inner">
             <h2 className="text-2xl font-semibold text-emerald-300 mb-4">
@@ -245,7 +245,7 @@ const Home = () => {
           </div>
         )}
 
-        {/* Generated Image */}
+        
         {generatedImageUrl && (
           <div className="mt-10 text-center">
             <h2 className="text-2xl font-semibold text-teal-300 mb-4">
