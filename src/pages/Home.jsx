@@ -132,7 +132,7 @@ const Home = () => {
 
       const payload = { instances: { prompt: imagePrompt }, parameters: { "sampleCount": 1 } };
       const apiKey = `${import.meta.env.api}`;
-      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
       const response = await fetch(apiUrl, {
         method: 'POST',
